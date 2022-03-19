@@ -18,15 +18,28 @@ const Circle = styled(Box)`
   border-radius: 50%;
 `
 
+const Btn = styled.button`
+  cursor: pointer;
+`;
+
+const Input = styled.input.attrs({ required: true })`
+  background-color: aqua;
+`;
+
 
 function App() {
   return (
     <Parent>
-      <Box bgColor="teal">
-        <Text>Hello</Text>
-      </Box>
+      <Btn>button</Btn>
+      <Btn as="anchor">anchor</Btn>
 
-      <Circle bgColor="skyblue"/>
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+      <Input />
+  
     </Parent>
   );
 }
