@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: ${props => props.theme.backgroundColor};
 `;
 
 const animation = keyframes`
@@ -46,13 +47,15 @@ const Box = styled.div`
   }
 `;
 
+const Title = styled.div`
+  font-size: 64px;
+  color: ${props => props.theme.textColor};
+`;
+
 function App() {
   return (
     <Wrapper>
-      <Box bgColor="#eee">
-        <Emoji>😍</Emoji>
-      </Box>
-      <Emoji>🤔</Emoji>
+      <Title as={"h1"}>Hello</Title>
     </Wrapper>
   );
 }
