@@ -1,46 +1,59 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
-const Parent = styled.div`
+const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+`;
+
+const animation = keyframes`
+  0% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+
+  50% {
+    transform: rotate(360deg);
+    border-radius: 50%;
+  }
+
+  100% {
+    transform: rotate(0deg);
+    border-radius: 0px;
+  }
+`;
+
+const Emoji = styled.span`
+  font-size: 100px;
 `;
 
 const Box = styled.div`
   background-color: ${props => props.bgColor};
-  width: 100px;
-  height: 100px;
+  width: 500px;
+  height: 500px;
+  animation: ${animation} 5s linear infinite;
+
+  ${Emoji} {
+    &:hover {
+      font-size: 150px;
+    }
+
+    &:active {
+      opacity: 0;
+    }
+  }
 `;
-
-const Text = styled.span`
-  color: white;
-`;
-
-const Circle = styled(Box)`
-  border-radius: 50%;
-`
-
-const Btn = styled.button`
-  cursor: pointer;
-`;
-
-const Input = styled.input.attrs({ required: true })`
-  background-color: aqua;
-`;
-
 
 function App() {
   return (
-    <Parent>
-      <Btn>button</Btn>
-      <Btn as="anchor">anchor</Btn>
-
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-  
-    </Parent>
+    <Wrapper>
+      <Box bgColor="#eee">
+        <Emoji>😍</Emoji>
+      </Box>
+      <Emoji>🤔</Emoji>
+    </Wrapper>
   );
 }
 
